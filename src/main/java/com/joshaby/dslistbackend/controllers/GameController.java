@@ -1,13 +1,11 @@
 package com.joshaby.dslistbackend.controllers;
 
 import com.joshaby.dslistbackend.dtos.GameDTO;
+import com.joshaby.dslistbackend.dtos.GameMinDTO;
 import com.joshaby.dslistbackend.services.GameService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +18,13 @@ public class GameController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<GameDTO> findAll() {
+    public List<GameMinDTO> findAll() {
         return service.findAll();
+    }
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public GameDTO findById(@PathVariable Long id) {
+        return service.findById(id);
     }
 }

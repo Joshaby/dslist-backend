@@ -2,13 +2,11 @@ package com.joshaby.dslistbackend.dtos;
 
 import com.joshaby.dslistbackend.entities.Game;
 import lombok.*;
-import org.springframework.beans.BeanUtils;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter
-public class GameDTO {
+public class GameMinDTO {
 
     private Long id;
 
@@ -16,19 +14,14 @@ public class GameDTO {
 
     private Integer year;
 
-    private String genre;
-
-    private String platforms;
-
-    private Double score;
-
     private String imgUrl;
 
     private String shortDescription;
 
-    private String longDescription;
-
-    public GameDTO(Game game) {
-        BeanUtils.copyProperties(game, this);
+    public GameMinDTO(Game game) {
+        this.id = game.getId();
+        this.title = game.getTitle();
+        this.year = game.getYear();
+        this.shortDescription = game.getShortDescription();
     }
 }
