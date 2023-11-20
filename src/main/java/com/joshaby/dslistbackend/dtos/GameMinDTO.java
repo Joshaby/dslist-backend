@@ -3,7 +3,6 @@ package com.joshaby.dslistbackend.dtos;
 import com.joshaby.dslistbackend.entities.Game;
 import lombok.*;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 public class GameMinDTO {
@@ -22,6 +21,7 @@ public class GameMinDTO {
         this.id = game.getId();
         this.title = game.getTitle();
         this.year = game.getYear();
+        this.imgUrl = game.getImgUrl();
         this.shortDescription = game.getShortDescription();
     }
 }

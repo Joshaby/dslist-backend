@@ -4,7 +4,6 @@ import com.joshaby.dslistbackend.entities.Game;
 import lombok.*;
 import org.springframework.beans.BeanUtils;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
