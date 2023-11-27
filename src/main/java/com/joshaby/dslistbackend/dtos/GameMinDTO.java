@@ -1,6 +1,7 @@
 package com.joshaby.dslistbackend.dtos;
 
 import com.joshaby.dslistbackend.entities.Game;
+import com.joshaby.dslistbackend.projections.GameMinProjection;
 import lombok.*;
 
 @NoArgsConstructor
@@ -23,5 +24,13 @@ public class GameMinDTO {
         this.year = game.getYear();
         this.imgUrl = game.getImgUrl();
         this.shortDescription = game.getShortDescription();
+    }
+
+    public GameMinDTO(GameMinProjection gameMinProjection) {
+        this.id = gameMinProjection.getId();
+        this.title = gameMinProjection.getTitle();
+        this.year = gameMinProjection.getYear();
+        this.imgUrl = gameMinProjection.getImgUrl();
+        this.shortDescription = gameMinProjection.getShortDescription();
     }
 }

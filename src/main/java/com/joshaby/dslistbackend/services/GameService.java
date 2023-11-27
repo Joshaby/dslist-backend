@@ -2,7 +2,6 @@ package com.joshaby.dslistbackend.services;
 
 import com.joshaby.dslistbackend.dtos.GameDTO;
 import com.joshaby.dslistbackend.dtos.GameMinDTO;
-import com.joshaby.dslistbackend.entities.Game;
 import com.joshaby.dslistbackend.repositories.GameRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,13 @@ public class GameService {
                 () -> new RuntimeException("Não existe Game com Id" + id)));
     }
 
+    @Transactional(readOnly = true)
     public List<GameMinDTO> findAll() {
         return repository.findAll().stream().map(GameMinDTO::new).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> findByList(Long listId) {
+        return repository.findByList(listId).stream().map(GameMinDTO::new).toList();
     }
 }
