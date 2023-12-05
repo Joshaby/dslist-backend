@@ -11,6 +11,15 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
+#        hbm2ddl:
+#          delimiter: ;
+#      jakarta:
+#        persistence:
+#          schema-generation:
+#            create-source: metadata
+#            scripts:
+#              action: create
+#              create-target: create.sql
 
     hibernate:
       ddl-auto: none
